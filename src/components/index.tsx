@@ -30,4 +30,32 @@ export function ConfusingInput(props) {
   export  const InvalidComponent = (props) => {
     return <ConfusingInput placeholder="Enter text" handleChange={props.onChange} />;
   };
+
+  export class InefficientList extends React.Component {
+    render() {
+      const items = this.props.items.map((item) => {
+        return <div>{item}</div>;
+      });
   
+      return <div>{items}</div>;
+    }
+  }
+
+  export class UnsafeComponent extends React.Component {
+    componentDidMount() {
+      fetch('https://api.example.com/data')
+        .then((response) => response.json())
+        .then((data) => {
+          this.setState({ data });
+        });
+    }
+  
+    render() {
+      return <div>{this.state.data}</div>;
+    }
+  }
+
+
+  export const X = () => {
+    return <div>Click me!</div>;
+  };
