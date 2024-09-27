@@ -1,6 +1,26 @@
+import { Button, ItemList, TextInput } from "@/components";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const handleClick = () => {
+    alert('Button clicked!');
+  };
+
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+  const items = [
+    { id: 1, name: 'Item 1' },
+    { id: 2, name: 'Item 2' },
+    { id: 3, name: 'Item 3' },
+  ];
+
+    
+
+    
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -12,6 +32,18 @@ export default function Home() {
           height={38}
           priority
         />
+        <div>
+      <h1>Hello World</h1>
+      <Button label="Click Me" onClick={handleClick} />
+    </div>
+    <div>
+      <h1>Controlled Input</h1>
+      <TextInput placeholder="Enter text" value={inputValue} onChange={handleInputChange} />
+    </div>
+    <div>
+      <h1>My Item List</h1>
+      <ItemList items={items} />
+    </div>
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2">
             Get started by editing{" "}
