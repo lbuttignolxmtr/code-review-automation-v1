@@ -1,6 +1,6 @@
 import React from 'react';
 
-class BadButton extends React.Component {
+export class BadButton extends React.Component {
   render() {
     const style = {
       backgroundColor: 'red',
@@ -16,4 +16,18 @@ class BadButton extends React.Component {
   }
 }
 
-export default BadButton;
+
+export function ConfusingInput(props) {
+    return (
+      <input
+        type="text"
+        placeholder={props.placeholder}
+        onChange={props.handleChange}
+      />
+    );
+  }
+  
+  export  const InvalidComponent = (props) => {
+    return <ConfusingInput placeholder="Enter text" handleChange={props.onChange} />;
+  };
+  
